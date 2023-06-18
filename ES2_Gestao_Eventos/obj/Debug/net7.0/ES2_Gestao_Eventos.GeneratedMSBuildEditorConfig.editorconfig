@@ -1,0 +1,105 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = ES2_Gestao_Eventos
+build_property.RootNamespace = ES2_Gestao_Eventos
+build_property.ProjectDir = C:\Users\sofia\RiderProjects\ES2_Gestao_Eventos\ES2_Gestao_Eventos\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
+build_property.MSBuildProjectDirectory = C:\Users\sofia\RiderProjects\ES2_Gestao_Eventos\ES2_Gestao_Eventos
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/sofia/RiderProjects/ES2_Gestao_Eventos/ES2_Gestao_Eventos/Views/Autenticacao/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0ZW50aWNhY2FvXExvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sofia/RiderProjects/ES2_Gestao_Eventos/ES2_Gestao_Eventos/Views/Autenticacao/Registar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0ZW50aWNhY2FvXFJlZ2lzdGFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sofia/RiderProjects/ES2_Gestao_Eventos/ES2_Gestao_Eventos/Views/Bilhetes/CriarBilhetes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlsaGV0ZXNcQ3JpYXJCaWxoZXRlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sofia/RiderProjects/ES2_Gestao_Eventos/ES2_Gestao_Eventos/Views/Bilhetes/ListarBilhetes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlsaGV0ZXNcTGlzdGFyQmlsaGV0ZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sofia/RiderProjects/ES2_Gestao_Eventos/ES2_Gestao_Eventos/Views/Eventos/CriarEvento.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRvc1xDcmlhckV2ZW50by5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sofia/RiderProjects/ES2_Gestao_Eventos/ES2_Gestao_Eventos/Views/Eventos/EditarEvento.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRvc1xFZGl0YXJFdmVudG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sofia/RiderProjects/ES2_Gestao_Eventos/ES2_Gestao_Eventos/Views/Eventos/InscreverEvento.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRvc1xJbnNjcmV2ZXJFdmVudG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sofia/RiderProjects/ES2_Gestao_Eventos/ES2_Gestao_Eventos/Views/Eventos/ListarEventos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRvc1xMaXN0YXJFdmVudG9zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sofia/RiderProjects/ES2_Gestao_Eventos/ES2_Gestao_Eventos/Views/Eventos/ListarEventosTodos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRvc1xMaXN0YXJFdmVudG9zVG9kb3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sofia/RiderProjects/ES2_Gestao_Eventos/ES2_Gestao_Eventos/Views/Eventos/ProcurarEvento.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRvc1xQcm9jdXJhckV2ZW50by5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sofia/RiderProjects/ES2_Gestao_Eventos/ES2_Gestao_Eventos/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sofia/RiderProjects/ES2_Gestao_Eventos/ES2_Gestao_Eventos/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sofia/RiderProjects/ES2_Gestao_Eventos/ES2_Gestao_Eventos/Views/Perfil/EditarPerfil.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyZmlsXEVkaXRhclBlcmZpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sofia/RiderProjects/ES2_Gestao_Eventos/ES2_Gestao_Eventos/Views/Perfil/VerPerfil.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyZmlsXFZlclBlcmZpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sofia/RiderProjects/ES2_Gestao_Eventos/ES2_Gestao_Eventos/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sofia/RiderProjects/ES2_Gestao_Eventos/ES2_Gestao_Eventos/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sofia/RiderProjects/ES2_Gestao_Eventos/ES2_Gestao_Eventos/Views/Utilizadores/CriarUsers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXRpbGl6YWRvcmVzXENyaWFyVXNlcnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sofia/RiderProjects/ES2_Gestao_Eventos/ES2_Gestao_Eventos/Views/Utilizadores/EliminarUsers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXRpbGl6YWRvcmVzXEVsaW1pbmFyVXNlcnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sofia/RiderProjects/ES2_Gestao_Eventos/ES2_Gestao_Eventos/Views/Utilizadores/ListarUsers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXRpbGl6YWRvcmVzXExpc3RhclVzZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sofia/RiderProjects/ES2_Gestao_Eventos/ES2_Gestao_Eventos/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sofia/RiderProjects/ES2_Gestao_Eventos/ES2_Gestao_Eventos/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sofia/RiderProjects/ES2_Gestao_Eventos/ES2_Gestao_Eventos/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-wqqqhtej7x

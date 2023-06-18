@@ -1,0 +1,78 @@
+@model ES2_Gestao_Eventos.Database.Entities.User
+@{
+    ViewData["Title"] = "Registar";
+    var hasError = ViewData["NascimentoError"] as bool? ?? false;
+    var hasErrorEmail = ViewData["emailUniqueError"] as bool? ?? false;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<div class="text-center">
+    <h1>Register</h1>
+</div>
+<hr/>
+<div class="container">
+    <form asp-controller="Autenticacao" asp-action="Registar" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group w-50 m-auto p-3">
+            <label asp-for="Nome" class="control-label">Nome</label>
+            <input asp-for="Nome" class="form-control"/>
+            <span asp-validation-for="Nome" class="text-danger"></span>
+        </div>
+        <div class="form-group w-50 m-auto p-3">
+            <label asp-for="Email" class="control-label">Email</label>
+            <input asp-for="Email" class="form-control"/>
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="form-group w-50 m-auto p-3">
+            <label asp-for="Password" class="control-label">Password</label>
+            <input asp-for="Password" class="form-control" type="password"/>
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="form-group w-50 m-auto p-3">
+            <label asp-for="Telemovel" class="control-label">Telemóvel</label>
+            <input asp-for="Telemovel" class="form-control"/>
+            <span asp-validation-for="Telemovel" class="text-danger"></span>
+        </div>
+        <div class="form-group w-50 m-auto p-3">
+            <label asp-for="Nascimento" class="control-label">Data de Nascimento</label>
+            <input asp-for="Nascimento" class="form-control"/>
+            <span asp-validation-for="Nascimento" class="text-danger"></span>
+        </div>
+        <div class="form-group w-50 m-auto p-3">
+            <label asp-for="IdTipoUser" class="control-label">Tipo de User:</label>
+            <select asp-for="IdTipoUser" class="form-control">
+                <option value="">Selecione uma categoria</option>
+                @foreach (var tipoUser in ViewBag.TipoUsers)
+                {
+                    @if (tipoUser.Nome != "UserManager")
+                    {
+                        <option value="@tipoUser.IdTipoUser">@tipoUser.Nome</option>
+                    }
+                }
+            </select>
+        </div>
+        <div class="form-group text-center">
+            <input type="submit" value="Criar" class="btn btn-primary"/>
+        </div>
+    </form>
+</div>
+
+<div class="text-center">
+    @if (hasError)
+    {
+        <p style="color: red;">
+            Esta data de nascimento é impossivel!
+        </p>
+    }
+    @if (hasErrorEmail)
+    {
+        <p style="color: red;">
+            Este email já existe!
+        </p>
+    }
+
+    <p>Já tens conta? <a asp-action="Login">Entrar</a></p>
+
+</div>

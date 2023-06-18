@@ -1,0 +1,51 @@
+@model ES2_Gestao_Eventos.Database.Entities.User
+
+@{
+    ViewData["Title"] = "Editar Perfil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Editar Perfil</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditarPerfil">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdUser" />
+            <input type="hidden" asp-for="IdTipoUser" />
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label">Nome:</label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label">Email:</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label">Password:</label>
+                <textarea asp-for="Password" class="form-control"> </textarea>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Telemovel" class="control-label">Telemóvel:</label>
+                <input asp-for="Telemovel" class="form-control"/>
+                <span asp-validation-for="Telemovel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nascimento" class="control-label">Data de Nascimento:</label>
+                <input asp-for="Nascimento" class="form-control"/>
+                <span asp-validation-for="Nascimento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="VerPerfil">Listar</a>
+</div>

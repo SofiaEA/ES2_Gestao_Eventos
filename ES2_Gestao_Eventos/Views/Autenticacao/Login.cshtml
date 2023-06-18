@@ -1,0 +1,47 @@
+
+@model ES2_Gestao_Eventos.Models.SessaoLogin
+
+@{
+    ViewData["Title"] = "Login";
+    var hasError = ViewData["HasError"] as bool? ?? false;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<div class="container text-center">
+    
+    <h1>Login</h1>
+
+    <h4>Bem-Vindo</h4>
+    <hr/>
+    <div class="container">
+        <form asp-controller="Autenticacao" asp-action="Login" method="post">
+            
+            <div class="form-group w-50 m-auto p-3">
+                <label class="control-label">Email</label>
+                <input asp-for="Email" class="form-control"/>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group w-50 m-auto p-3">
+                <label asp-for="Password" class="control-label">Password</label>
+                <input asp-for="Password" type="password" class="form-control"/>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="text-center form-group">
+                <input type="submit" value="Login" class="btn btn-primary"/>
+            </div>
+
+        </form>
+        <div class="text-center">
+            <p>
+                Ainda não tens conta? <a asp-controller="Autenticacao" asp-action="Registar">Criar</a></p>
+        </div>
+        @if (hasError)
+        {
+            <p style="color: red;">
+                Credenciais Erradas! 
+            </p>
+        }
+    </div>
+</div>

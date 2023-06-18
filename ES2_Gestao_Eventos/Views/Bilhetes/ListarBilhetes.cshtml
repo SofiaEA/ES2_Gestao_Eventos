@@ -1,0 +1,32 @@
+@model List<ES2_Gestao_Eventos.Database.Entities.Bilhete>
+
+@{
+    ViewData["Title"] = "Listar Bilhete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Bilhetes</h1>
+
+<p>
+     <a asp-action="CriarBilhetes">Criar um Bilhete</a> 
+</p>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Nome do Evento</th>
+        <th>Tipo de Bilhetes</th>
+        <th>Preço Total</th>
+        <th>Número de Bilhetes</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.IdEventoNavigation.Nome)</td>
+              <td>@Html.DisplayFor(modelItem => item.IdTipoBilhetesNavigation.Nome)</td>
+            <td>@Html.DisplayFor(modelItem => item.Precototal)</td>
+            <td>@Html.DisplayFor(modelItem => item.Numbilhetes)</td>
+        </tr>
+    }
+    </tbody>
+</table>

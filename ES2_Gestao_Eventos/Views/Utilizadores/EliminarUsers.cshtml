@@ -1,0 +1,52 @@
+@model ES2_Gestao_Eventos.Database.Entities.User
+
+@{
+    ViewData["Title"] = "Eliminar Users";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<h1>Eliminar Utilizador</h1>
+
+<div>
+    <hr/>
+    <dl class="row">
+       <dt class="col-sm-2">
+                   @Html.DisplayNameFor(model => model.Nome):
+               </dt>
+               <dd class="col-sm-10">
+                   @Html.DisplayFor(model => model.Nome)
+               </dd>
+               <dt class="col-sm-2">
+                   @Html.DisplayNameFor(model => model.Email):
+               </dt>
+               <dd class="col-sm-10">
+                   @Html.DisplayFor(model => model.Email)
+               </dd>
+               <dt class="col-sm-2">
+                   <label asp-for="Nascimento" class="control-label">Telemóvel</label>
+               </dt>
+               <dd class="col-sm-10">
+                   @Html.DisplayFor(model => model.Telemovel)
+               </dd>
+               <dt class="col-sm-2">
+                   <label asp-for="Nascimento" class="control-label">Data de Nascimento</label>
+               </dt>
+               <dd class="col-sm-10">
+                   @Html.DisplayFor(model => model.Nascimento)
+               </dd>
+               <dt class="col-sm-2">
+                   <label asp-for="Nascimento" class="control-label">Tipo de User</label>
+               </dt>
+               <dd class="col-sm-10">
+                   @Html.DisplayFor(model => model.TipoUserNavigation.Nome)
+               </dd>
+    </dl>
+
+    <form asp-action="EliminarUsers">
+        <input type="hidden" asp-for="IdUser"/>
+        <input type="submit" value="Delete" class="btn btn-danger"/>
+    </form>
+
+</div>

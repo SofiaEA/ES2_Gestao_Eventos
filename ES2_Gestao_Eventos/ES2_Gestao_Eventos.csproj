@@ -1,0 +1,53 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="7.0.5" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.5">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Views\Eventos\CriarEvento.cs" />
+      <Compile Remove="Views\Users\ListarUsers.cshtml.cs" />
+      <Compile Remove="Views\Users\**" />
+      <Compile Remove="Models\PerfilViewModel.cs" />
+      <Compile Remove="Views\Eventos\Inscrever.cs" />
+      <Compile Remove="Controllers\EventosControllerUsers.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Remove="Views\Users\ListarUsers.cshtml" />
+      <Content Remove="Views\Users\**" />
+      <Content Remove="Views\Bilhetes\CriarBilhete.cshtml" />
+      <Content Remove="Views\Eventos\Inscrever.cshtml" />
+      <Content Remove="Views\Eventos\BilheteComprado.cshtml" />
+      <Content Remove="Views\Eventos\ListarEventosPartici.cshtml" />
+      <Content Remove="Views\Eventos\ListarTodosEventos.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="Views\Users\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Views\Users\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\Users\ListarUsers.cshtml" />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,46 @@
+@model ES2_Gestao_Eventos.Models.ProcurarEventosViewModel
+
+@{
+    ViewData["Title"] = "Procurar Eventos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Procurar Eventos</h1>
+
+<form asp-controller="Eventos" asp-action="ProcurarEvento" method="post">
+    <div class="form-group">
+        <label for="searchQuery">Procurar:</label>
+        <input type="text" id="searchQuery" name="SearchQuery" class="form-control" />
+    </div>
+    <br/>
+    <button type="submit" class="btn btn-primary">Procurar</button>
+</form>
+
+@if (Model.procurar != null && Model.procurar.Any())
+{
+    <br/>
+    <h2>Resultados:</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Local</th>
+            <th>Descrição</th>
+            <th>Data</th>
+            <th>Capacidade Máxima</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var result in Model.procurar)
+        {
+            <tr>
+                <td>@result.Nome</td>
+                <td>@result.Local</td>
+                <td>@result.Descricao</td>
+                <td>@result.Data</td>
+                <td>@result.Capacidademax</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}

@@ -1,0 +1,52 @@
+@model ES2_Gestao_Eventos.Database.Entities.Bilhete
+@{
+    ViewData["Title"] = "CriarBilhetes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<div class="text-center">
+    <h1>Criar Bilhete</h1>
+</div>
+<hr/>
+<div class="container">
+    <form asp-controller="Bilhetes" asp-action="CriarBilhetes" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group w-50 m-auto p-3">
+            <label asp-for="Numbilhetes" class="control-label">Número de Bilhetes:</label>
+            <input asp-for="Numbilhetes" class="form-control"/>
+            <span asp-validation-for="Numbilhetes" class="text-danger"></span>
+        </div>
+         <div class="form-group w-50 m-auto p-3"> 
+             <label asp-for="Precototal" class="control-label">Preço:</label> 
+             <input asp-for="Precototal" class="form-control"/> 
+             <span asp-validation-for="Precototal" class="text-danger"></span> 
+         </div> 
+         <div class="form-group w-50 m-auto p-3"> 
+             <label asp-for="IdEvento" class="control-label">Evento:</label> 
+                 <select asp-for="IdEvento" class="form-control"> 
+                     <option value="">Selecione um evento</option> 
+                     @foreach (var eventos in ViewBag.Eventos) 
+                     {
+                         {
+                             <option value="@eventos.Value">@eventos.Text</option>
+                         }
+                     } 
+                 </select> 
+         </div> 
+         <div class="form-group w-50 m-auto p-3"> 
+             <label asp-for="IdTipoBilhetes" class="control-label">Tipo de Bilhete:</label> 
+                 <select asp-for="IdTipoBilhetes" class="form-control"> 
+                     <option value="">Selecione um bilhete</option> 
+                     @foreach (var tipoBilhete in ViewBag.TiposBilhete) 
+                     { 
+                         <option value="@tipoBilhete.Value">@tipoBilhete.Text</option> 
+                     } 
+                 </select> 
+         </div>
+        <div class="form-group text-center">
+            <input type="submit" value="Criar" class="btn btn-primary"/>
+        </div>
+    </form>
+</div>

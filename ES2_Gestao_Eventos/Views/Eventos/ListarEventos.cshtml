@@ -1,0 +1,49 @@
+@model List<ES2_Gestao_Eventos.Database.Entities.Evento>
+
+@{
+    ViewData["Title"] = "Listar Eventos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Eventos</h1>
+
+<p>
+    <a asp-action="CriarEvento">Criar um Evento</a>  
+</p>
+
+<h3>Ver Bilhetes</h3>
+
+<p>
+    <a asp-controller="Bilhetes" asp-action="ListarBilhetes">Ver</a>  
+</p>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Nome do Evento</th>
+        <th>Localização</th>
+        <th>Descrição</th>
+        <th>Data</th>
+        <th>Capacidade Máxima</th>
+        <th>Categoria</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+            <td>@Html.DisplayFor(modelItem => item.Local)</td>
+            <td>@Html.DisplayFor(modelItem => item.Descricao)</td>
+            <td>@Html.DisplayFor(modelItem => item.Data)</td>
+            <td>@Html.DisplayFor(modelItem => item.Capacidademax)</td>
+            <td>@Html.DisplayFor(modelItem => item.IdCategoriaNavigation.Nome)</td>
+            <td>
+                <a asp-action="EditarEvento" asp-route-id="@item.IdEvento">Editar</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+<p>
+    <a asp-action="ProcurarEvento">Procurar um Evento</a>  
+</p>

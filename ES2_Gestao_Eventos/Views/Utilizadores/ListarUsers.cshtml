@@ -1,0 +1,37 @@
+@model IEnumerable<ES2_Gestao_Eventos.Database.Entities.User>
+
+@{
+    ViewData["Title"] = "ListarUsers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Utilizadores</h1>
+
+<p>
+    <a asp-action="CriarUsers">Criar um Utilizador</a>
+</p>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Telemóvel</th>
+        <th>Data de Nascimento</th>
+        <th>Tipo de User</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+            <td>@Html.DisplayFor(modelItem => item.Email)</td>
+            <td>@Html.DisplayFor(modelItem => item.Telemovel)</td>
+            <td>@Html.DisplayFor(modelItem => item.Nascimento)</td>
+            <td>@Html.DisplayFor(modelItem => item.TipoUserNavigation.Nome)</td>
+            <td>
+                <a asp-action="EliminarUsers" asp-route-id="@item.IdUser">Eliminar</a> 
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
