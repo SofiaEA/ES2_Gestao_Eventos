@@ -1,0 +1,33 @@
+@model ES2_Gestao_Eventos.Database.Entities.Bilhete
+
+@{
+    ViewData["Title"] = "Comprar Bilhete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Comprar Bilhete</h1>
+
+<div>
+    <h3>Detalhes do Bilhete</h3>
+    <p>Evento: @Model.IdEventoNavigation.Nome</p>
+    <p>Tipo de Bilhete: @Model.IdTipoBilhetesNavigation.Nome</p>
+    <p>Preço: @Model.Precototal</p>
+    <p>Número de Bilhetes Disponíveis: @Model.bilhetesdisp</p>
+</div>
+
+@if (Model.bilhetesdisp <= 0)
+{
+    <div class="alert alert-danger">
+        Não há mais bilhetes disponíveis para este evento.
+    </div>
+}
+else
+{
+    <form asp-action="ConfirmarCompra" asp-route-id="@Model.IdBilhete">
+        <div class="form-group">
+            <label for="quantidade">Quantidade:</label>
+            <input type="number" class="form-control" id="quantidade" name="quantidade" min="1" max="@Model.bilhetesdisp" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Comprar</button>
+    </form>
+}
