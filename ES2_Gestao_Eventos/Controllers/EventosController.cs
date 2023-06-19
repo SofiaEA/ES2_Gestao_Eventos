@@ -119,9 +119,6 @@ public class EventosController : Controller
         return View((IEnumerable<Bilhete>)bib);
     }
 
-    
-    [HttpPost]
-    [ValidateAntiForgeryToken]
     public async Task<IActionResult> ComprarBilhete(int? id)
     {
         if (id == null)
@@ -129,31 +126,57 @@ public class EventosController : Controller
             return NotFound();
         }
 
+        var bilhete = await _context.Bilhetes
+            .Include(b => b.IdEventoNavigation)
+            .Include(b => b.IdTipoBilhetesNavigation)
+            .FirstOrDefaultAsync(b => b.IdBilhete == id);
+
+        if (bilhete == null)
+        {
+            return NotFound();
+        }
+
+        return View(bilhete);
+    }
+
+
+
+    
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> ConfirmarCompra(int id, int quantidade)
+    {
         var bilhete = await _context.Bilhetes.FindAsync(id);
 
         if (bilhete == null)
         {
             return NotFound();
         }
-    
-        bilhete.bilhetesComprados++;
+
+        if (bilhete.bilhetesdisp < quantidade)
+        {
+            TempData["MensagemCompra"] = "Não há bilhetes suficientes disponíveis.";
+            return RedirectToAction(nameof(ComprarBilhete), new { id = bilhete.IdBilhete });
+        }
+
+        bilhete.bilhetesdisp -= quantidade;
+        bilhete.bilhetesComprados += quantidade;
 
         try
         {
             _context.Update(bilhete);
             await _context.SaveChangesAsync();
         }
-        catch (Exception e)
+        catch (Exception)
         {
-            Console.WriteLine(e);
-            throw;
+            TempData["MensagemCompra"] = "Ocorreu um erro ao processar a compra.";
+            return RedirectToAction(nameof(ComprarBilhete), new { id = bilhete.IdBilhete });
         }
-    
-        TempData["MensagemCompra"] = "Bilhete comprado com sucesso!";
 
-        return RedirectToAction(nameof(InscreverEvento));
+        TempData["MensagemCompra"] = $"Compra efetuada com sucesso! Quantidade: {quantidade}";
+
+        return RedirectToAction(nameof(ListarEventosTodos));
     }
-
 
     public IActionResult CriarEvento()
     {

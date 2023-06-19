@@ -14,7 +14,6 @@
         <th>Localização</th>
         <th>Descrição</th>
         <th>Data</th>
-        <th>Capacidade Máxima</th>
         <th>Categoria</th>
     </tr>
     </thead>
@@ -25,7 +24,6 @@
             <td>@Html.DisplayFor(modelItem => item.Local)</td>
             <td>@Html.DisplayFor(modelItem => item.Descricao)</td>
             <td>@Html.DisplayFor(modelItem => item.Data)</td>
-            <td>@Html.DisplayFor(modelItem => item.Capacidademax) pessoas</td>
             <td>@Html.DisplayFor(modelItem => item.IdCategoriaNavigation.Nome)</td>
             <td>
                 <a asp-action="InscreverEvento" asp-route-id="@item.IdEvento">Inscrever</a>

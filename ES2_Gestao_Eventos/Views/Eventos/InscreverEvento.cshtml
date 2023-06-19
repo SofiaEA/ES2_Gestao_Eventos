@@ -7,14 +7,6 @@
 
 <h1>Lista de Bilhetes</h1>
 
-@if (TempData.ContainsKey("MensagemCompra"))
-{
-    <div class="alert alert-success">
-        @TempData["MensagemCompra"]
-    </div>
-}
-
-
 <table class="table">
     <thead>
     <tr>
@@ -34,10 +26,9 @@
             <td>@bilhete.Precototal</td>
             <td>@bilhete.Numbilhetes</td>
             <td>@bilhete.bilhetesdisp</td>
-            <td>
-                <a asp-action="ComprarBilhete" asp-route-id="@bilhete.IdBilhete">Comprar</a>
-            </td>
-
+             <td> 
+                 <a asp-action="ComprarBilhete" asp-route-id="@bilhete.IdBilhete">Comprar</a>
+             </td>
         </tr>
     }
     </tbody>
