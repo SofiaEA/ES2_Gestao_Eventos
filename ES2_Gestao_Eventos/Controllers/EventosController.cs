@@ -138,11 +138,6 @@ public class EventosController : Controller
                 return View(eventos);
             }
             
-            if (UtilServices.DateGratherThanToday(eventos.Data))
-            {
-                ViewData["birthDateError"] = true;
-                return View();
-            }
             
             eventos.IdUser = UserSessao.UserId;
             
