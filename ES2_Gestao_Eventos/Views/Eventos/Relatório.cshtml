@@ -1,0 +1,43 @@
+@model ES2_Gestao_Eventos.Database.Entities.Evento
+
+@{
+    ViewData["Title"] = "Relatório";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Relatório do Evento:<h2>@Model.Nome</h2></h1>
+<p><h5>Local:</h5></p>
+<p>@Model.Local</p>
+<h5>Descrição:</h5>
+<p>@Model.Descricao</p>
+<h5>Capacidade Máxima:</h5>
+<p>Capacidade Máxima: @Model.Capacidademax</p>
+<h5>Data:</h5>
+<p>@Model.Data</p>
+<h5>Categoria:</h5>
+<p>@Model.IdCategoriaNavigation.Nome</p>
+
+<h2>Bilhetes:</h2>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Tipo de Bilhete</th>
+        <th>Preço</th>
+        <th>Número de Bilhetes Disponíveis</th>
+        <th>Número de Bilhetes Por Comprar</th>
+        <th>Número de Bilhetes Comprados</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var bilhete in Model.Bilhetes)
+    {
+        <tr>
+            <td>@bilhete.IdTipoBilhetesNavigation.Nome</td>
+            <td>@bilhete.Precototal</td>
+            <td>@bilhete.Numbilhetes</td>
+            <td>@bilhete.bilhetesdisp</td>
+        </tr>
+    }
+    </tbody>
+</table>

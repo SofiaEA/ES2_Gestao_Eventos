@@ -30,14 +30,32 @@ public class EventosController : Controller
         return View(eventos);
     }
     
+    public async Task<IActionResult> Relatório(int id)
+    {
+        var userId = UserSessao.UserId;
+
+        var evento = await _context.Eventos
+            .Include(e => e.IdCategoriaNavigation)
+            .Include(v => v.Bilhetes)
+            .ThenInclude(t => t.IdTipoBilhetesNavigation)
+            .FirstOrDefaultAsync(e => e.IdEvento == id && e.IdUserNavigation.IdUser == userId);
+
+        if (evento == null)
+        {
+            return NotFound();
+        }
+
+        return View(evento);
+    }
+
     public async Task<IActionResult> ListarEventosTodos()
     {
         
-        var evento = await _context.Eventos
+        var ev = await _context.Eventos
             .Include(e => e.IdCategoriaNavigation)
             .ToListAsync();
 
-        return View(evento);
+        return View(ev);
     }
     
     public async Task<IActionResult> ListarEventosManager()
