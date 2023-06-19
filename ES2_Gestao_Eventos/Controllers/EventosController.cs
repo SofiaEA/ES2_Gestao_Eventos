@@ -120,19 +120,27 @@ public class EventosController : Controller
     }
 
     
+    [HttpPost]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> ComprarBilhete(int? id)
     {
+        if (id == null)
+        {
+            return NotFound();
+        }
+
         var bilhete = await _context.Bilhetes.FindAsync(id);
 
         if (bilhete == null)
         {
             return NotFound();
         }
-
-        bilhete.bilhetesdisp -= 1;
+    
+        bilhete.bilhetesComprados++;
 
         try
         {
+            _context.Update(bilhete);
             await _context.SaveChangesAsync();
         }
         catch (Exception e)
@@ -140,11 +148,12 @@ public class EventosController : Controller
             Console.WriteLine(e);
             throw;
         }
-        
+    
         TempData["MensagemCompra"] = "Bilhete comprado com sucesso!";
 
         return RedirectToAction(nameof(InscreverEvento));
     }
+
 
     public IActionResult CriarEvento()
     {

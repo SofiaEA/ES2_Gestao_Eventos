@@ -7,14 +7,22 @@
 
 <h1>Lista de Bilhetes</h1>
 
+@if (TempData.ContainsKey("MensagemCompra"))
+{
+    <div class="alert alert-success">
+        @TempData["MensagemCompra"]
+    </div>
+}
+
+
 <table class="table">
     <thead>
     <tr>
         <th>Nome do Evento</th>
         <th>Tipo de Bilhete</th>
         <th>Preço</th>
-        <th>Número de Bilhetes do Tipo</th>
-        <th>Número de Bilhetes Disponíveis</th>
+        <th>Número de Bilhetes Disponibilizados</th>
+        <th>Número de Bilhetes Ainda Disponíveis</th>
     </tr>
     </thead>
     <tbody>
@@ -27,8 +35,9 @@
             <td>@bilhete.Numbilhetes</td>
             <td>@bilhete.bilhetesdisp</td>
             <td>
-                <a asp-action="ListarEventosTodos" asp-route-id="@bilhete.IdEvento">Comprar</a>
+                <a asp-action="ComprarBilhete" asp-route-id="@bilhete.IdBilhete">Comprar</a>
             </td>
+
         </tr>
     }
     </tbody>

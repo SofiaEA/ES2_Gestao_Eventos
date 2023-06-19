@@ -19,6 +19,9 @@ namespace ES2_Gestao_Eventos.Database.Entities
         
         [Column("bilhetesdisp")]
         public int bilhetesdisp { get; set; }
+        
+        [Column("bilhetescomprados")]
+        public int bilhetesComprados { get; set; }
 
         [Column("idTipoBilhetes")]
         public int IdTipoBilhetes { get; set; }

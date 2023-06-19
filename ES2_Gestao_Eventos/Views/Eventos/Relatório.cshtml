@@ -11,7 +11,7 @@
 <h5>Descrição:</h5>
 <p>@Model.Descricao</p>
 <h5>Capacidade Máxima:</h5>
-<p>Capacidade Máxima: @Model.Capacidademax</p>
+<p>@Model.Capacidademax pessoas</p>
 <h5>Data:</h5>
 <p>@Model.Data</p>
 <h5>Categoria:</h5>
@@ -24,7 +24,7 @@
     <tr>
         <th>Tipo de Bilhete</th>
         <th>Preço</th>
-        <th>Número de Bilhetes Disponíveis</th>
+        <th>Número de Bilhetes Disponibilizados</th>
         <th>Número de Bilhetes Por Comprar</th>
         <th>Número de Bilhetes Comprados</th>
     </tr>
@@ -34,10 +34,15 @@
     {
         <tr>
             <td>@bilhete.IdTipoBilhetesNavigation.Nome</td>
-            <td>@bilhete.Precototal</td>
-            <td>@bilhete.Numbilhetes</td>
-            <td>@bilhete.bilhetesdisp</td>
+            <td>@bilhete.Precototal €</td>
+            <td>@bilhete.Numbilhetes bilhetes</td>
+            <td>@bilhete.bilhetesdisp bilhetes</td>
+            <td>@bilhete.bilhetesComprados bilhetes</td>
         </tr>
     }
     </tbody>
 </table>
+
+<div>
+    <a asp-action="ListarEventos">Listar Todos</a>
+</div>

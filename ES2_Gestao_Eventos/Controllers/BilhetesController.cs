@@ -74,7 +74,7 @@ namespace ES2_Gestao_Eventos.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CriarBilhetes(
-            [Bind("IdEvento", "IdTipoBilhetes", "Precototal", "Numbilhetes")] Bilhete bilhetes)
+            [Bind("IdEvento", "IdTipoBilhetes", "Precototal", "Numbilhetes", "bilhetescomprados")] Bilhete bilhetes)
         {
             if (!ModelState.IsValid)
             {
@@ -83,8 +83,7 @@ namespace ES2_Gestao_Eventos.Controllers
 
             try
             {
-                bilhetes.bilhetesdisp = bilhetes.Numbilhetes;
-
+                bilhetes.bilhetesComprados = 0;
                 
                 var evento = _context.Eventos
                     .FirstOrDefault(tb => tb.IdEvento.Equals(bilhetes.IdEvento));
