@@ -21,11 +21,15 @@ namespace ES2_Gestao_Eventos.Controllers
 
         public async Task<IActionResult> ListarBilhetes()
         {
+            var userId = UserSessao.UserId; 
 
-            return View(await _context.Bilhetes
+            var bilhetes = await _context.Bilhetes
                 .Include(b => b.IdEventoNavigation)
                 .Include(tb => tb.IdTipoBilhetesNavigation)
-                .ToListAsync());
+                .Where(b => b.IdEventoNavigation.IdUser == userId)
+                .ToListAsync();
+
+            return View(bilhetes);
         }
 
         public IActionResult CriarBilhetes()
