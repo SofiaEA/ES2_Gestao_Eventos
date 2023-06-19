@@ -40,6 +40,17 @@ public class EventosController : Controller
         return View(evento);
     }
     
+    public async Task<IActionResult> ListarEventosManager()
+    {
+        
+        var evento = await _context.Eventos
+            .Include(e => e.IdUserNavigation)
+            .Include(e => e.IdCategoriaNavigation)
+            .ToListAsync();
+
+        return View(evento);
+    }
+    
 
     public async Task<IActionResult> InscreverEvento(int? id)
     {
