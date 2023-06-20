@@ -16,7 +16,8 @@
         <th>Nome do Evento</th>
         <th>Tipo de Bilhetes</th>
         <th>Preço</th>
-        <th>Número de Bilhetes</th>
+        <th>Número de Bilhetes Disponibilizados</th>
+        <th>Número de Bilhetes Ainda Disponíveis</th>
     </tr>
     </thead>
     <tbody>
@@ -26,6 +27,7 @@
             <td>@Html.DisplayFor(modelItem => item.IdTipoBilhetesNavigation.Nome)</td>
             <td>@Html.DisplayFor(modelItem => item.Precototal) €</td>
             <td>@Html.DisplayFor(modelItem => item.Numbilhetes) bilhetes</td>
+            <td>@Html.DisplayFor(modelItem => item.bilhetesdisp) bilhetes</td>
         </tr>
     }
     </tbody>

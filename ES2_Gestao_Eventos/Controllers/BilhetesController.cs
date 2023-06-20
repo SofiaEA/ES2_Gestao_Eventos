@@ -83,16 +83,25 @@ namespace ES2_Gestao_Eventos.Controllers
 
             try
             {
+
                 bilhetes.bilhetesComprados = 0;
+
+                bilhetes.bilhetesdisp = bilhetes.Numbilhetes;
                 
                 var evento = _context.Eventos
                     .FirstOrDefault(tb => tb.IdEvento.Equals(bilhetes.IdEvento));
                 
+
                 var tiposBilhete = _context.Tipobilhetes
                     .FirstOrDefault(tb => tb.IdTipoBilhete.Equals(bilhetes.IdTipoBilhetes));
 
                 if (evento != null)
                 {
+                    if (bilhetes.Numbilhetes > evento.Capacidademax)
+                    {
+                        throw new Exception("O número de bilhetes não pode ser maior que a capacidade máxima do evento.");
+                    }
+                    
                     bilhetes.IdEventoNavigation = evento;
                     bilhetes.IdTipoBilhetesNavigation = tiposBilhete;
 

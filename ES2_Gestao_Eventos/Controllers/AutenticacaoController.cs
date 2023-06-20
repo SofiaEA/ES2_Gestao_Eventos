@@ -4,6 +4,7 @@ using ES2_Gestao_Eventos.Database.Context;
 using ES2_Gestao_Eventos.Database.Entities;
 using ES2_Gestao_Eventos.Models;
 using ES2_Gestao_Eventos.Services;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -90,10 +91,6 @@ namespace ES2_Gestao_Eventos.Controllers;
 
             try
             {
-                if (user.IdTipoUser == null)
-                {
-                    user.IdTipoUser = 3;
-                }
 
                 var tipoUser = _context.Tipousers
                     .FirstOrDefault(u => u.IdTipoUser.Equals(user.IdTipoUser));
