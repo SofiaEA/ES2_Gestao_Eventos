@@ -43,6 +43,9 @@
             <td>
                 <a asp-action="Relatório" asp-route-id="@item.IdEvento">Relatório</a>
             </td>
+              <td>  
+                  <a asp-controller="Eventos" asp-action="BilhetesDoEvento" asp-route-id="@item.IdEvento">Bilhetes</a> 
+             </td>  
         </tr>
     }
     </tbody>

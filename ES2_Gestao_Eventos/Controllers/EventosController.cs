@@ -177,7 +177,23 @@ public class EventosController : Controller
 
         return RedirectToAction(nameof(ListarEventosTodos));
     }
-
+    
+     public IActionResult BilhetesDoEvento(int? id)
+     {
+         var evento = _context.Eventos
+             .Include(e => e.Bilhetes)
+             .ThenInclude(b => b.IdTipoBilhetesNavigation)
+             .FirstOrDefault(e => e.IdEvento == id);
+    
+         if (evento == null)
+         {
+             return NotFound();
+         }
+    
+         var bilhetes = evento.Bilhetes.ToList();
+         return View(bilhetes);
+     }
+    
     public IActionResult CriarEvento()
     {
         var currentUser = UserSessao.UserId;

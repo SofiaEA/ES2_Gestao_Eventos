@@ -70,7 +70,7 @@ namespace ES2_Gestao_Eventos.Controllers
         }
 
 
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CriarBilhetes(
@@ -87,21 +87,29 @@ namespace ES2_Gestao_Eventos.Controllers
                 bilhetes.bilhetesComprados = 0;
 
                 bilhetes.bilhetesdisp = bilhetes.Numbilhetes;
-                
+
                 var evento = _context.Eventos
                     .FirstOrDefault(tb => tb.IdEvento.Equals(bilhetes.IdEvento));
-                
 
                 var tiposBilhete = _context.Tipobilhetes
                     .FirstOrDefault(tb => tb.IdTipoBilhete.Equals(bilhetes.IdTipoBilhetes));
-
+                
+                int totalBilhetesExistentes = _context.Bilhetes
+                    .Where(b => b.IdEvento == evento.IdEvento)
+                    .Sum(b => b.Numbilhetes);
+                
+                if (totalBilhetesExistentes + bilhetes.Numbilhetes > evento.Capacidademax)
+                {
+                    throw new Exception("A soma dos bilhetes excede a capacidade máxima do evento.");
+                }
+                
                 if (evento != null)
                 {
                     if (bilhetes.Numbilhetes > evento.Capacidademax)
                     {
                         throw new Exception("O número de bilhetes não pode ser maior que a capacidade máxima do evento.");
                     }
-                    
+
                     bilhetes.IdEventoNavigation = evento;
                     bilhetes.IdTipoBilhetesNavigation = tiposBilhete;
 
