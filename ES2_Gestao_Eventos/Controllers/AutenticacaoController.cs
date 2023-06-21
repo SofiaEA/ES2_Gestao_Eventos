@@ -56,6 +56,8 @@ namespace ES2_Gestao_Eventos.Controllers;
 
         public IActionResult Registar()
         {
+            TempData["MensagemRegisto"] = null;
+            
             List<Tipouser> tipousers = _context.Tipousers.ToList();
             ViewBag.TipoUsers = tipousers;
             
@@ -101,8 +103,11 @@ namespace ES2_Gestao_Eventos.Controllers;
 
                 _context.Add(user);
                 await _context.SaveChangesAsync();
+                
+                TempData["MensagemRegisto"] = "Conta criada com sucesso! Faça login para acessar sua conta.";
 
-                return RedirectToAction(controllerName: "Autenticacao", actionName: "Login");
+                return View("Login");
+                
             }
             catch (Exception e)
             {
