@@ -65,8 +65,7 @@ public class PerfilController : Controller
         
         if (UtilServices.DateGratherThanToday(user.Nascimento))
         {
-            ViewData["dateGreather"] = true;
-            return View();
+            throw new Exception("Esta data de nascimento é impossível.");
         }
         
         user.Nascimento = DateTime.SpecifyKind(user.Nascimento, DateTimeKind.Utc);

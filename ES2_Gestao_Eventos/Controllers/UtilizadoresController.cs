@@ -41,14 +41,12 @@ public class UtilizadoresController : Controller
 
         if(!UserServices.BeUniqueEmail(_context, user.Email, 0))
         {
-            ViewData["emailUniqueError"] = true;
-            return View();
+            throw new Exception("Este email já pertence a uma conta.");
         }
 
         if (UtilServices.DateGratherThanToday(user.Nascimento))
         {
-            ViewData["birthDateError"] = true;
-            return View();
+            throw new Exception("Esta data de nascimento é impossível.");
         }
 
         if (!ModelState.IsValid)
